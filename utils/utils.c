@@ -1,3 +1,5 @@
+#include "utils.h"
+
 int random_number(int start, int stop)
 {
     return (rand() % (stop - start + 1)) + start;
@@ -14,4 +16,39 @@ char *generate_name(int len)
     res[len] = '\0';
 
     return res;
+}
+
+int imax(int a, int b)
+{
+    return (a > b)? a : b;
+}
+
+
+char *int_to_string(int value)
+{
+    int len = 1;
+    int temp = value;
+
+    // Calculate the length of the integer
+    while (temp >= 10)
+    {
+        temp /= 10;
+        len++;
+    }
+
+    // Allocate memory for the string
+    char *str = (char *)malloc((len + 1) * sizeof(char));
+
+    // Check if memory allocation was successful
+    if (str == NULL)
+    {
+        printf("Memory allocation failed.\n");
+        return NULL;
+    }
+
+    // Convert the int to a wide string
+    sprintf(str, "%d", value);
+    str[len] = '\0';
+
+    return str;
 }

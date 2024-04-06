@@ -5,6 +5,9 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
+
+#include <utils.h>
 
 typedef struct BSTNode
 {
@@ -29,6 +32,7 @@ typedef struct BST
 
 BST *bst_create();
 int bst_len(BST *tree);
+int bst_depth(BST *tree);
 void bst_destroy(BST *tree);
 void bst_insert(BST *tree, void *elem);
 void *bst_max(BST *tree);

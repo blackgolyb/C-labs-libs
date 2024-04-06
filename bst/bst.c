@@ -21,6 +21,19 @@ int bst_len(BST *tree)
     return __bst__len_body(tree->root);
 }
 
+int __bst__depth_body(BSTNode *node)
+{
+    if (!node)
+        return 0;
+
+    return 1 + imax(__bst__depth_body(node->left), __bst__depth_body(node->right));
+}
+
+int bst_depth(BST *tree)
+{
+    return __bst__depth_body(tree->root);
+}
+
 void __bst__destroy_body(BSTNode *node)
 {
     if (!node)
