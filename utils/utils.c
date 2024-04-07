@@ -22,6 +22,10 @@ int imax(int a, int b)
 {
     return (a > b)? a : b;
 }
+int imin(int a, int b)
+{
+    return (a > b)? b : a;
+}
 
 
 char *int_to_string(int value)
