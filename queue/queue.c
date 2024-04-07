@@ -12,18 +12,18 @@ Queue *queue_create()
 void queue_destroy(Queue *queue)
 {
     while (queue->head != NULL)
-        queue_remove(queue);
+        queue_pop(queue);
     free(queue);
 }
 
 void queue_destroy_with_elems(Queue *queue)
 {
     while (queue->head != NULL)
-        free(queue_remove(queue));
+        free(queue_pop(queue));
     free(queue);
 }
 
-void queue_insert(Queue *queue, void* elem)
+void queue_push(Queue *queue, void* elem)
 {
     QueueNode *node = malloc(sizeof(QueueNode));
     node->data = elem;
@@ -37,7 +37,7 @@ void queue_insert(Queue *queue, void* elem)
         queue->head = node;
 }
 
-void *queue_remove(Queue *queue){
+void *queue_pop(Queue *queue){
     QueueNode *node = queue->head;
     void *data = node->data;
     queue->head = node->next;
@@ -67,13 +67,13 @@ void queue_copy(Queue *stack, Queue *src)
 {
     Queue *tmp = queue_create();
     while (!queue_is_empty(src))
-        queue_insert(tmp, queue_remove(src));
+        queue_push(tmp, queue_pop(src));
 
     while (!queue_is_empty(tmp))
     {
-        void *elem = queue_remove(tmp);
-        queue_insert(stack, elem);
-        queue_insert(src, elem);
+        void *elem = queue_pop(tmp);
+        queue_push(stack, elem);
+        queue_push(src, elem);
     }
     queue_destroy(tmp);
 }

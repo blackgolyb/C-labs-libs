@@ -4,8 +4,9 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+#include "utils.h"
 #include "linked_list.h"
 
-void ll_bubble_sort(List *list, bool (*cmp)(void *, void *));
+void ll_bubble_sort(List *list, CmpFun cmp);
 
 #endif // LINKED_LIST_SORT_H_INCLUDED

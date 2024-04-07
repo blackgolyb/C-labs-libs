@@ -6,6 +6,7 @@ void input_float(float *value_ptr, char *prompt);
 void input_double(double *value_ptr, char *prompt);
 void input_int(int *value_ptr, char *prompt);
 void input_char(char *value_ptr, char *prompt);
+void input_string(char **value_ptr, char *prompt);
 
 #define input1(value_ptr) _Generic((value_ptr), \
     int *: input_int,                           \

@@ -1,8 +1,6 @@
 #include "linked_list_sort.h"
 
-typedef bool (*CmpFunction)(void *, void *);
-
-void ll_bubble_sort(List *list, CmpFunction cmp)
+void ll_bubble_sort(List *list, CmpFun cmp)
 {
     int swapped;
     struct ListNode *i, *j;
@@ -30,7 +28,7 @@ void ll_bubble_sort(List *list, CmpFunction cmp)
     }
 }
 
-struct ListNode *__ll__partition(struct ListNode *l, struct ListNode *r, CmpFunction cmp)
+struct ListNode *__ll__partition(struct ListNode *l, struct ListNode *r, CmpFun cmp)
 {
     struct ListNode *pivot = r;
     struct ListNode *i = NULL;
@@ -57,7 +55,7 @@ struct ListNode *__ll__partition(struct ListNode *l, struct ListNode *r, CmpFunc
     return i;
 }
 
-void __ll__ll_quick_sort_body(List *list, struct ListNode *l, struct ListNode *r, CmpFunction cmp)
+void __ll__ll_quick_sort_body(List *list, struct ListNode *l, struct ListNode *r, CmpFun cmp)
 {
     if (l == r || !l || !r)
     {
@@ -108,7 +106,7 @@ void __ll__ll_quick_sort_body(List *list, struct ListNode *l, struct ListNode *r
     }
 }
 
-void ll_quick_sort(List *list, CmpFunction cmp)
+void ll_quick_sort(List *list, CmpFun cmp)
 {
     __ll__ll_quick_sort_body(list, list->head, list->tail, cmp);
 }

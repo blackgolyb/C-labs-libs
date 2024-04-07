@@ -24,8 +24,8 @@ typedef struct Queue
 Queue *queue_create();
 void queue_destroy(Queue *stack);
 void queue_destroy_with_elems(Queue *stack);
-void queue_insert(Queue *stack, void* elem);
-void *queue_remove(Queue *stack);
+void queue_push(Queue *stack, void* elem);
+void *queue_pop(Queue *stack);
 int queue_size(Queue *stack);
 bool queue_is_empty(Queue *stack);
 void queue_copy(Queue *stack, Queue *src);
